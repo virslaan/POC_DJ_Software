@@ -3,93 +3,70 @@
 <head> 
 <title>DJ VeePULL</title>
 <style>
-   body {
-    background-image: url('https://images.unsplash.com/photo-1553785063-9e892a3f15b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    position: relative; /* Added */
+ 
+  
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2em 1em;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #1DB954;
+    font-size: 2em;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.button-container > div {
+    margin-bottom: 2em;
+}
+
+.button-cyan {
+    display: block;
+    margin-bottom: 1em;
+    padding: 1em;
+    color: #b3b3b3;
+    background-color: #1DB954;
+    border: none;
+    border-radius: 500px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.button-cyan:disabled {
+    background-color: #535353;
+}
+
+.volume-control, .upload-music {
+    margin-top: 1em;
+}
+
+.volume-slider, .background-music-volume-slider {
+    width: 100%;
 }
 
 .overlay {
-    position: absolute; /* Added */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Added */
-    z-index: -1; /* Added */
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
-
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-    }
-
-    h1 {
-        margin-bottom: 30px;
-        font-size: 24px;
-        text-align: center;
-    }
-
-    .button-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-
-    .audio-controls {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 10px;
-    }
-
-    .pitch-controls {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 10px;
-    }
-
-    .range-label {
-        color: #888;
-    }
-
-    .range-value {
-        color: #fff;
-    }
-
-    .volume-control {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-top: 5px;
-    }
-
-    .volume-label {
-        color: #888;
-    }
-
-    .volume-slider {
-        width: 100px;
-    }
-
-    .background-music-button {
-        margin-top: 20px;
-    }
-
-    .stop-button {
-        margin-left: 5px;
-    }
+.music-playing .overlay {
+    opacity: 1;
+}
     body {
         background-image: url('https://images.unsplash.com/photo-1553785063-9e892a3f15b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
         background-size: cover;
