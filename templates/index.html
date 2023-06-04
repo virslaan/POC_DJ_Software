@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DJ VeePULL</title>
+<style>
+   body {
+    background-image: url('https://images.unsplash.com/photo-1553785063-9e892a3f15b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Added */
+}
+
+.overlay {
+    position: absolute; /* Added */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Added */
+    z-index: -1; /* Added */
+}
+
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    h1 {
+        margin-bottom: 30px;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .audio-controls {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .pitch-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .range-label {
+        color: #888;
+    }
+
+    .range-value {
+        color: #fff;
+    }
+
+    .volume-control {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 5px;
+    }
+
+    .volume-label {
+        color: #888;
+    }
+
+    .volume-slider {
+        width: 100px;
+    }
+
+    .background-music-button {
+        margin-top: 20px;
+    }
+
+    .stop-button {
+        margin-left: 5px;
+    }
+    body {
+        background-image: url('https://images.unsplash.com/photo-1553785063-9e892a3f15b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+        background-size: cover;
+        background-position: center;
+        color: rgba(255, 255, 255, 0.086);
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .button-cyan {
+        background-color: rgba(6, 207, 222, 0.591);
+        color: rgb(255, 255, 255);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        opacity: 0.8;
+    }
+
+    .button-cyan:hover {
+        opacity: 1;
+    }
+
+    /* New styles */
+    .upload-music {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .upload-music-label {
+        color: #888;
+    }
+
+    .upload-music-input {
+        width: 200px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .background-music-upload {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1 style="color:rgb(255, 255, 255)">DJ VeePULL Plays Now</h1>
+
+        <div class="button-container">
+            <div>
+                <button class="record-button button-cyan">Record</button>
+                <button class="stop-button button-cyan" disabled>Stop</button>
+                <button class="play-button button-cyan" disabled>Play</button>
+                <button class="play-high-pitch-button button-cyan" disabled>Play with High Pitch</button>
+                <button class="play-low-pitch-button button-cyan" disabled>Play with Low Pitch</button>
+                <div class="volume-control">
+                    <label class="volume-label">Volume:</label>
+                    <input class="volume-slider" type="range" min="0" max="1" step="0.1" value="1">
+                </div>
+            </div>
+            <div>
+                <button class="record-button button-cyan">Record</button>
+                <button class="stop-button button-cyan" disabled>Stop</button>
+                <button class="play-button button-cyan" disabled>Play</button>
+                <button class="play-high-pitch-button button-cyan" disabled>Play with High Pitch</button>
+                <button class="play-low-pitch-button button-cyan" disabled>Play with Low Pitch</button>
+                <div class="volume-control">
+                    <label class="volume-label">Volume:</label>
+                    <input class="volume-slider" type="range" min="0" max="1" step="0.1" value="1">
+                </div>
+            </div>
+            <div>
+                <button class="record-button button-cyan">Record</button>
+                <button class="stop-button button-cyan" disabled>Stop</button>
+                <button class="play-button button-cyan" disabled>Play</button>
+                <button class="play-high-pitch-button button-cyan" disabled>Play with High Pitch</button>
+                <button class="play-low-pitch-button button-cyan" disabled>Play with Low Pitch</button>
+                <div class="volume-control">
+                    <label class="volume-label">Volume:</label>
+                    <input class="volume-slider" type="range" min="0" max="1" step="0.1" value="1">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button class="play-background-music-button button-cyan">Play Background Music</button>
+            <button class="stop-background-music-button button-cyan">Stop Background Music</button>
+            <div class="volume-control">
+                <label class="volume-label">Volume:</label>
+                <input class="background-music-volume-slider" type="range" min="0" max="1" step="0.1" value="1">
+            </div>
+        </div>
+
+        <div class="upload-music">
+            <label class="upload-music-label">Upload Custom Music:</label>
+            <input class="upload-music-input" type="file" accept="audio/*">
+            <button class="background-music-upload button-cyan">Play Custom Music</button>
+        </div>
+    </div>
+
+    <script>
+        const buttonContainers = document.querySelectorAll('.button-container');
+        const recordButtons = document.querySelectorAll('.record-button');
+        const stopButtons = document.querySelectorAll('.stop-button');
+        const playButtons = document.querySelectorAll('.play-button');
+        const playHighPitchButtons = document.querySelectorAll('.play-high-pitch-button');
+        const playLowPitchButtons = document.querySelectorAll('.play-low-pitch-button');
+        const volumeSliders = document.querySelectorAll('.volume-slider');
+        const playBackgroundMusicButton = document.querySelector('.play-background-music-button');
+        const stopBackgroundMusicButton = document.querySelector('.stop-background-music-button');
+        const backgroundMusicVolumeSlider = document.querySelector('.background-music-volume-slider');
+        const musicIndicator = document.getElementById('musicIndicator');
+        const uploadMusicInput = document.querySelector('.upload-music-input');
+        const backgroundMusicUploadButton = document.querySelector('.background-music-upload');
+
+        let mediaRecorders = [];
+        let chunks = [];
+        let backgroundMusicPlayer;
+        let customMusicPlayer;
+
+        for (let i = 0; i < recordButtons.length; i++) {
+            recordButtons[i].addEventListener('click', function() {
+                const recordButton = this;
+                const stopButton = stopButtons[i];
+                const playButton = playButtons[i];
+                const playHighPitchButton = playHighPitchButtons[i];
+                const playLowPitchButton = playLowPitchButtons[i];
+                const volumeSlider = volumeSliders[i];
+
+                recordButton.disabled = true;
+                stopButton.disabled = false;
+                playButton.disabled = true;
+                playHighPitchButton.disabled = true;
+                playLowPitchButton.disabled = true;
+
+                chunks[i] = [];
+
+                navigator.mediaDevices.getUserMedia({ audio: true })
+                    .then(function(stream) {
+                        mediaRecorders[i] = new MediaRecorder(stream);
+                        mediaRecorders[i].start();
+
+                        mediaRecorders[i].addEventListener('dataavailable', function(event) {
+                            chunks[i].push(event.data);
+                        });
+                    });
+            });
+
+            stopButtons[i].addEventListener('click', function() {
+                const recordButton = recordButtons[i];
+                const stopButton = this;
+                const playButton = playButtons[i];
+                const playHighPitchButton = playHighPitchButtons[i];
+                const playLowPitchButton = playLowPitchButtons[i];
+                const volumeSlider = volumeSliders[i];
+
+                recordButton.disabled = false;
+                stopButton.disabled = true;
+                playButton.disabled = false;
+                playHighPitchButton.disabled = false;
+                playLowPitchButton.disabled = false;
+
+                mediaRecorders[i].stop();
+
+                const blob = new Blob(chunks[i], { type: 'audio/ogg; codecs=opus' });
+                const audioUrl = URL.createObjectURL(blob);
+
+                const audioPlayer = new Audio(audioUrl);
+                audioPlayer.volume = volumeSlider.value;
+                audioPlayer.play();
+            });
+
+            playButtons[i].addEventListener('click', function() {
+                const recordButton = recordButtons[i];
+                const stopButton = stopButtons[i];
+                const playButton = this;
+                const playHighPitchButton = playHighPitchButtons[i];
+                const playLowPitchButton = playLowPitchButtons[i];
+                const volumeSlider = volumeSliders[i];
+
+                recordButton.disabled = true;
+                stopButton.disabled = false;
+                playButton.disabled = true;
+                playHighPitchButton.disabled = true;
+                playLowPitchButton.disabled = true;
+
+                const audioPlayer = new Audio();
+                audioPlayer.volume = volumeSlider.value;
+
+                audioPlayer.addEventListener('ended', function() {
+                    recordButton.disabled = false;
+                    stopButton.disabled = true;
+                    playButton.disabled = false;
+                    playHighPitchButton.disabled = false;
+                    playLowPitchButton.disabled = false;
+                });
+
+                const blob = new Blob(chunks[i], { type: 'audio/ogg; codecs=opus' });
+                const audioUrl = URL.createObjectURL(blob);
+                audioPlayer.src = audioUrl;
+
+                audioPlayer.play();
+            });
+
+            playHighPitchButtons[i].addEventListener('click', function() {
+                const recordButton = recordButtons[i];
+                const stopButton = stopButtons[i];
+                const playButton = playButtons[i];
+                const playHighPitchButton = this;
+                const playLowPitchButton = playLowPitchButtons[i];
+                const volumeSlider = volumeSliders[i];
+
+                recordButton.disabled = true;
+                stopButton.disabled = false;
+                playButton.disabled = true;
+                playHighPitchButton.disabled = true;
+                playLowPitchButton.disabled = true;
+
+                const audioPlayer = new Audio();
+                audioPlayer.volume = volumeSlider.value;
+
+                audioPlayer.addEventListener('ended', function() {
+                    recordButton.disabled = false;
+                    stopButton.disabled = true;
+                    playButton.disabled = false;
+                    playHighPitchButton.disabled = false;
+                    playLowPitchButton.disabled = false;
+                });
+
+                const blob = new Blob(chunks[i], { type: 'audio/ogg; codecs=opus' });
+                const audioUrl = URL.createObjectURL(blob);
+                audioPlayer.src = audioUrl;
+                audioPlayer.playbackRate = 1.5; // Increase the playback rate for higher pitch
+
+                audioPlayer.play();
+            });
+
+            playLowPitchButtons[i].addEventListener('click', function() {
+                const recordButton = recordButtons[i];
+                const stopButton = stopButtons[i];
+                const playButton = playButtons[i];
+                const playHighPitchButton = playHighPitchButtons[i];
+                const playLowPitchButton = this;
+                const volumeSlider = volumeSliders[i];
+
+                recordButton.disabled = true;
+                stopButton.disabled = false;
+                playButton.disabled = true;
+                playHighPitchButton.disabled = true;
+                playLowPitchButton.disabled = true;
+
+                const audioPlayer = new Audio();
+                audioPlayer.volume = volumeSlider.value;
+
+                audioPlayer.addEventListener('ended', function() {
+                    recordButton.disabled = false;
+                    stopButton.disabled = true;
+                    playButton.disabled = false;
+                    playHighPitchButton.disabled = false;
+                    playLowPitchButton.disabled = false;
+                });
+
+                const blob = new Blob(chunks[i], { type: 'audio/ogg; codecs=opus' });
+                const audioUrl = URL.createObjectURL(blob);
+                audioPlayer.src = audioUrl;
+                audioPlayer.playbackRate = 0.5; // Decrease the playback rate for lower pitch
+
+                audioPlayer.play();
+            });
+
+            volumeSliders[i].addEventListener('input', function() {
+                const volumeSlider = this;
+                const volumeLabel = volumeSlider.parentNode.querySelector('.volume-label');
+
+                const volumeValue = volumeSlider.value;
+                volumeLabel.textContent = `Volume: ${volumeValue}`;
+            });
+        }
+
+        playBackgroundMusicButton.addEventListener('click', function() {
+            const musicUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'; // Replace with the URL of your background music
+
+            backgroundMusicPlayer = new Audio(musicUrl);
+            backgroundMusicPlayer.loop = true;
+            backgroundMusicPlayer.volume = backgroundMusicVolumeSlider.value;
+            backgroundMusicPlayer.play();
+
+            backgroundMusicPlayer.addEventListener('play', function() {
+                document.body.classList.add('music-playing');
+            });
+
+            backgroundMusicPlayer.addEventListener('pause', function() {
+                document.body.classList.remove('music-playing');
+            });
+        });
+
+        stopBackgroundMusicButton.addEventListener('click', function() {
+            if (backgroundMusicPlayer) {
+                backgroundMusicPlayer.pause();
+                document.body.classList.remove('music-playing');
+            }
+        });
+
+        backgroundMusicVolumeSlider.addEventListener('input', function() {
+            if (backgroundMusicPlayer) {
+                backgroundMusicPlayer.volume = backgroundMusicVolumeSlider.value;
+            }
+        });
+
+        backgroundMusicUploadButton.addEventListener('click', function() {
+            const file = uploadMusicInput.files[0];
+            if (file) {
+                const musicUrl = URL.createObjectURL(file);
+
+                if (customMusicPlayer) {
+                    customMusicPlayer.pause();
+                }
+
+                customMusicPlayer = new Audio(musicUrl);
+                customMusicPlayer.loop = true;
+                customMusicPlayer.volume = backgroundMusicVolumeSlider.value;
+                customMusicPlayer.play();
+
+                customMusicPlayer.addEventListener('play', function() {
+                    document.body.classList.add('music-playing');
+                });
+
+                customMusicPlayer.addEventListener('pause', function() {
+                    document.body.classList.remove('music-playing');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
